@@ -211,9 +211,9 @@ body{
 
 .section-title span {
     text-transform: capitalize;
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 500;
-    color: red;
+    color: #C60001;
 }
 
 .section-title .title {
@@ -681,16 +681,17 @@ body{
 }
 
 .sidebar-menu .sidebar-menu-close {
-    background-color: red;
+    background-color: #C60001;
     border: 0;
     position: absolute;
     top: 0;
     right: 0;
     color: #fff;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     line-height: 50px;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .sidebar-menu .sidebar-menu-close i {
@@ -1895,7 +1896,7 @@ body{
 .about-area .about-content > span {
     font-size: 30px;
     font-weight: 500;
-    color: red;
+    color: #C60001;
     padding-bottom: 27px;
 }
 
@@ -2030,7 +2031,7 @@ body{
 
 .about-content.them-2 h3 i {
     padding-right: 20px;
-    color: #ff4880;
+    color: #C60001;
 }
 
 .about-content.them-2 h3 {
@@ -2533,13 +2534,13 @@ body{
 }
 
 .course-area .section-title span {
-    color: #ff4d4d;
-    font-size: 20px;
+    /* color: #ff4d4d; */
+    font-size: 30px;
     
 }
 
 .course-area .section-title .title {
-    color: #ff4d4d;
+    /* color: #ff4d4d; */
    
 }
 .course-area .single-course:hover .course-thumb img{
@@ -2569,7 +2570,7 @@ body{
     position: relative;
     margin-bottom: 25px;
     transition: all linear 0.3s; 
-    color: yellow;
+    color: #FED700;
 }
 
 .course-area .single-course  {
@@ -2584,8 +2585,7 @@ body{
     background-color: gray;
 } */
  .course-content {
-    background-color: 
-    navy;
+    background-color: #0c1c46;
     color: white;
     /* border-radius: 20px; */
  }
@@ -2613,7 +2613,7 @@ body{
 .course-area .single-course .course-content .course-top span {
     font-family: "Fredoka One", cursive;
     font-weight: 500;
-    color: yellow;
+    color: #FED700;
     font-size: 20px;
     padding-top: 6px;
     padding-bottom: 25px;
@@ -3363,7 +3363,7 @@ body{
 }
 
 .card {
-    background-color: yellow;
+    background-color: #FED700;
     color: #333;
     padding: 20px;
     margin: 10px;
@@ -3415,7 +3415,7 @@ body{
 
 .testimonials-area .testimonials-item .testimonials-info .title {
     font-size: 22px;
-    color: #ff4d4d;
+    color: #C60001 ;
     text-transform: capitalize;
     
 }
@@ -3491,7 +3491,7 @@ body{
 
 .testimonials-area .testinonials-active .slick-dots li button {
     background-color: transparent;
-    border: 2px solid #ff4d4d;
+    border: 2px solid #C60001 ;
     border-radius: 50%;
     font-size: 0;
     height: 20px;
@@ -3499,7 +3499,7 @@ body{
 }
 
 .testimonials-area .testinonials-active .slick-dots li.slick-active button {
-    background: #ff4d4d;
+    background: #C60001 ;
 }
 
 .them-2 .testimonial-tile-gallery:hover .video-link {
@@ -4190,7 +4190,7 @@ body{
 
 .footer-bg::before {
     /* background: url(../images/footer.b1.jpg); */
-    background-color: navy;
+    background-color: #0c1c46;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -4251,7 +4251,6 @@ body{
 }
 
 .logo.footer-logo {
-    padding-bottom: 30px;
     margin-top: -30px;
 }
 
@@ -4299,7 +4298,12 @@ body{
 .footer-social-links li a.purple {
     background-color: #8876ff;
 }
-
+.single-footer-wedget{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .single-footer-wedget h4 {
     margin-bottom: 30px;
     font-size: 24px;
@@ -4329,7 +4333,7 @@ body{
 }
 
 .footer-contact-area span:last-child {
-    color: #393d72;
+    color: whitesmoke;
 }
 
 .footer-subscribe-form form {
@@ -4570,6 +4574,7 @@ body{
     z-index: 1;
     margin-bottom: 0;
 }
+
 
 .breadcrumb-content {
     height: 580px;
@@ -5060,6 +5065,80 @@ body{
     padding-top: 20px;
 }
 
+
+
+.features-item:hover .service01-btn i {
+    background: #fff;
+    color: #ff4880;
+    border: none;
+}
+
+.service01 .features-item {
+    box-shadow: 0 10px 10px #eaeaea;
+}
+
+.service01 .features-item:hover {
+    box-shadow: none;
+}
+
+.features-item.service-01 span {
+    display: inline-block;
+    background: #FED700;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+    transition: .3s ease-in-out;
+}
+
+.features-item.service-01 span i {
+    color: #0c1c46;
+    transition: .3s ease-in-out;
+}
+
+.features-item.service-01 span:before,
+.features-item.service-01 span::after {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    content: '';
+    background: #FED700;
+    z-index: -1;
+    border-radius: 15px;
+    transform: rotate(30deg);
+    transition: .3s ease-in-out;
+}
+
+.features-item.service-01 span::after {
+    transform: rotate(60deg);
+}
+
+.features-item.service-01 {
+    padding: 38px 41px;
+}
+
+.features-item.service-01:hover span i {
+    color: #C60001;
+}
+
+.features-item.service-01:hover span {
+    background: #fff;
+}
+
+.features-item.service-01:hover span:before {
+    background: #fff;
+}
+
+.features-item.service-01:hover span:after {
+    background: #fff;
+}
+
+
+
+
 /*===========================
     24.service-01 css 
 ===========================*/
@@ -5088,77 +5167,6 @@ body{
     font-size: 20px !important;
     transition: .2s;
 }
-
-.features-item:hover .service01-btn i {
-    background: #fff;
-    color: #ff4880;
-    border: none;
-}
-
-.service01 .features-item {
-    box-shadow: 0 10px 10px #eaeaea;
-}
-
-.service01 .features-item:hover {
-    box-shadow: none;
-}
-
-.features-item.service-01 span {
-    display: inline-block;
-    background: #8876ff;
-    padding: 20px;
-    border-radius: 15px;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 20px;
-    transition: .3s ease-in-out;
-}
-
-.features-item.service-01 span i {
-    color: #fff;
-    transition: .3s ease-in-out;
-}
-
-.features-item.service-01 span:before,
-.features-item.service-01 span::after {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    content: '';
-    background: #8876ff;
-    z-index: -1;
-    border-radius: 15px;
-    transform: rotate(30deg);
-    transition: .3s ease-in-out;
-}
-
-.features-item.service-01 span::after {
-    transform: rotate(60deg);
-}
-
-.features-item.service-01 {
-    padding: 38px 41px;
-}
-
-.features-item.service-01:hover span i {
-    color: #ff4880;
-}
-
-.features-item.service-01:hover span {
-    background: #fff;
-}
-
-.features-item.service-01:hover span:before {
-    background: #fff;
-}
-
-.features-item.service-01:hover span:after {
-    background: #fff;
-}
-
-
 
 .course-area.service01 {
     background: url(../images/service01-course-bg.jpg);
@@ -5454,6 +5462,7 @@ body{
 ===========================*/
 .single-team-member-details-area .team-3-bg img {
     width: 100%;
+    height: 600px;
 }
 
 .single-team-member-details-content .section-title .title {
@@ -5688,7 +5697,7 @@ body{
 .view-more-btn {
     display: block;
     text-align: center;
-    background: #ff4d4d;
+    background: #C60001 ;
     color: white;
     padding: 10px 20px;
     margin: 20px auto;
@@ -6927,95 +6936,163 @@ span.replay:hover i {
 /*===========================
     38.faq-page  css 
 ===========================*/
-.faq-content .card-header {
-    background-color: transparent;
-    border-bottom: 2px solid #eeeeee;
-    padding-left: 0px;
-    position: relative;
-    z-index: 1;
+.faq-introduction .container{
+    width: 100%;
 }
-
-.faq-content .card {
-    background-color: transparent;
-    border: transparent;
-}
-
-.faq-content .btn-link:hover {
-    text-decoration: none;
-}
-
-.faq-content .btn p {
-    color: #393d72;
-    font-weight: 500;
-    font-size: 20px;
-}
-
-.faq-content .btn.btn-link {
-    padding-left: 0;
-    text-decoration: none;
-    color: #393d72;
-    font-size: 20px;
-    position: relative;
-}
-
-.faq-content .btn span {
-    color: #ff4880;
-    padding-right: 20px;
-}
-
-.faq-content .card-body {
+.faq-introduction {
     padding: 40px 0;
+    background-color: #f4f7fb;
+    text-align: left;
+    margin-bottom: 40px;
 }
 
-.faq-content .card-body img {
-    width: 180px;
-    float: left;
+.faq-introduction .intro-text {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+    width: 100%;
+    max-width: 1200px;
+    min-width: 100%;
 }
 
-.faq-content .card-body p {
-    padding-left: 200px;
+.faq-introduction .intro-text a {
+    color: #0c1c46;
+    text-decoration: none;
 }
 
-.faq-author-img {
+.faq-introduction .intro-text a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .faq-introduction {
+        padding: 30px 0;
+    }
+
+    .faq-introduction .intro-text {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-introduction {
+        padding: 20px 0;
+    }
+
+    .faq-introduction .intro-text {
+        font-size: 14px;
+    }
+}
+
+
+.faq-area .row{
+    margin: auto;
+    padding: auto;
+}
+
+.faq-area {
+    /* padding: 80px 0; */
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+}
+
+.faq-title {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: #0c1c46;
+}
+
+.faq-wrapper {
+    margin-top: 40px;
+}
+
+.faq-item {
     margin-bottom: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
 }
 
-.faq-author-img img {
-    transition: .3s ease-in-out;
+.faq-item:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.faq-author-img:hover img {
-    transform: scale(1.1);
+.faq-question {
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+    color: #444;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #e1e1e1;
+    transition: background-color 0.3s ease;
 }
 
-.faq-author-details p {
-    margin-bottom: 30px;
+.faq-question:hover {
+    background-color: #e1e1e1;
 }
 
-.faq-content .card-header a {
-    position: absolute;
-    right: 0;
-    bottom: 20px;
-    font-size: 11px;
-    width: 20px;
-    height: 20px;
-    border: 1px solid #393d72;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 18px;
-    color: #393d72;
+.faq-toggle {
+    font-size: 24px;
+    color: #999;
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-toggle.open {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 20px;
+    font-size: 18px;
+    color: #555;
+    display: none;
+    background-color: #f9f9f9;
+}
+
+.faq-item.open .faq-answer {
+    display: block;
 }
 
 
-.single-brand-area{
-    text-align: center;
-}
-.brand-logo-area .single-brand-area img{
-    display: inline-block;
+
+/* Removing unnecessary padding or spacing */
+.faq-content {
+    padding-bottom: 0; /* Remove extra space */
 }
 
+.faq-wrapper {
+    padding-bottom: 0; /* Remove extra space */
+}
 
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    .faq-title {
+        font-size: 32px;
+    }
+
+    .faq-question {
+        font-size: 18px;
+    }
+
+    .faq-answer {
+        font-size: 16px;
+    }
+}
 
 
 
