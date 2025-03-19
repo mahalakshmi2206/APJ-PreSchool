@@ -247,7 +247,7 @@ body{
 .image-container img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Ensures image fits properly */
+    object-fit: contain; /* Ensures image fits properly */    
 }
 
 @keyframes jumpFadeIn {
@@ -348,206 +348,66 @@ body{
 /*----------------------------------------
    GO TO TOP
 ----------------------------------------*/
-
 .go-top-area .go-top {
     position: fixed;
     cursor: pointer;
-    top: 0;
-    right: 24px;
+    bottom: 20px;
+    right: 20px;
     color: #ffffff;
-    background-color: red;
+    background: linear-gradient(135deg, #FF5733, #C60001);
     z-index: 9999;
-    width: 40px;
+    width: 50px;
     text-align: center;
-    height: 42px;
-    line-height: 42px;
+    height: 50px;
+    line-height: 50px;
     opacity: 0;
     visibility: hidden;
-    -webkit-transition: .9s;
-    transition: .9s;
-    border-right: 0;
+    transition: all 0.4s ease-in-out;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .go-top-area .go-top i {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    left: -4px;
-    right: 0;
-    margin: 0 auto;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
-    font-size: 15px;
-}
-
-.go-top-area .go-top i:last-child {
-    opacity: 0;
-    visibility: hidden;
-    top: 60%;
-}
-
-.go-top-area .go-top::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background-color: #ff4880;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-transition: 0.5s;
-    transition: 0.5s;
+    font-size: 22px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
 .go-top-area .go-top:hover {
-    color: #ffffff;
-}
-
-.go-top-area .go-top:hover::before {
-    opacity: 1;
-    visibility: visible;
-}
-
-.go-top-area .go-top:hover i:first-child {
-    opacity: 0;
-    top: 0;
-    visibility: hidden;
-}
-
-.go-top-area .go-top:hover i:last-child {
-    opacity: 1;
-    visibility: visible;
-    top: 50%;
-}
-
-.go-top-area .go-top:focus {
-    color: #ffffff;
-}
-
-.go-top-area .go-top:focus::before {
-    opacity: 1;
-    visibility: visible;
-}
-
-.go-top-area .go-top:focus i:first-child {
-    opacity: 0;
-    top: 0;
-    visibility: hidden;
-}
-
-.go-top-area .go-top:focus i:last-child {
-    opacity: 1;
-    visibility: visible;
-    top: 50%;
+    transform: scale(1.1);
+    background: linear-gradient(135deg, #C60001, #FF5733);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
 }
 
 .go-top-area .go-top.active {
-    top: 98%;
-    -webkit-transform: translateY(-98%);
-    transform: translateY(-98%);
+    bottom: 20px;
     opacity: 1;
     visibility: visible;
-    border-radius: 0;
-    right: 20px;
-
-    /* @media #{$lg} {
-        top: 93%;
-    }
-
-    @media #{$md} {
-        top: 93%;
-    } */
 }
 
-.go-top-wrap {
-    position: relative;
-}
-
-.go-top-wrap .video-btn-wrap {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.go-top-wrap .go-top-play {
-    position: absolute;
-    top: 16px;
-    left: 80px;
-    text-transform: uppercase;
-    width: 129px;
-    line-height: 1;
-}
-
-.go-top-wrap .go-top-play p {
-    border-bottom: 1px solid #ffffff;
-    margin-bottom: 0;
-}
-
-.go-top-btn {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    text-align: center;
-    color: #ffffff;
-    position: relative;
-    top: 3px;
-    z-index: 1;
-    background: #ff4880;
-}
-
-.go-top-btn i {
-    font-size: 20px;
-    font-weight: 700;
-    padding-left: 4px;
-    color: #ffffff;
-}
-
-.go-top-btn::after {
-    z-index: -1;
+.go-top-area .go-top::after {
     content: "";
     position: absolute;
-    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
     top: 0;
-    width: 40px;
-    height: 40px;
-    -webkit-animation: ripple 1.6s ease-out infinite;
-    animation: ripple 1.6s ease-out infinite;
-    opacity: 0;
-    background: #ff4880;
+    left: 0;
+    background: rgba(255, 87, 51, 0.3);
+    animation: ripple 1.6s infinite ease-out;
 }
 
-.go-top-btn:hover {
-    background-color: #121232;
-    color: #ffffff;
-}
-
-@-webkit-keyframes ripple {
-
-    0%,
-    35% {
-        -webkit-transform: scale(0);
+@keyframes ripple {
+    0%, 35% {
         transform: scale(0);
         opacity: 1;
     }
-
-    50% {
-        -webkit-transform: scale(1.5);
-        transform: scale(1.5);
-        opacity: 0.8;
-    }
-
     100% {
-        opacity: 0;
-        -webkit-transform: scale(2);
         transform: scale(2);
+        opacity: 0;
     }
 }
+
 
 /*----------------------------------------
    Search Popup
@@ -716,13 +576,18 @@ body{
 .sidebar-menu .sidebar-contact ul li {
     font-size: 16px;
     line-height: 35px;
-    color: #888;
+    color: #000000;
 }
 
 .sidebar-menu .sidebar-contact ul li i {
     font-size: 16px;
     margin-right: 5px;
     width: 25px;
+    color: #C60001;
+}
+
+.sidemenu-text p{
+    color: black;
 }
 
 .sidebar-menu .sidebar-subscribe {
@@ -778,7 +643,7 @@ body{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: rgba(4, 51, 129, 0.1);
+    background: #ff0000;
     line-height: 43px;
     text-align: center;
     margin-right: 15px;
@@ -790,13 +655,15 @@ body{
     cursor: pointer;
 }
 
+
+
 .sidebar-menu .social-link ul li:hover {
-    background: #043381;
+    background: #0c1c46;
     color: #fff;
 }
 
 .sidebar-menu.active {
-    width: 365px;
+    width: 390px;
     opacity: 1;
     visibility: visible;
 }
@@ -852,7 +719,6 @@ body{
 
     .header-left-side p {
         font-size: 14px; /* Reduce font size */
-        padding: 5px 15px;
     }
 
     .header-right-social {
@@ -3464,9 +3330,9 @@ body{
 }
 
 .testimonials-area .testinonials-active .slick-arrow:hover {
-    background: #ff4880;
+    background: #C60001 ;
     color: #fff;
-    border-color: #ff4880;
+    border-color: #C60001 ;
 }
 
 .testimonials-area .testinonials-active .slick-arrow.prev {
@@ -4574,6 +4440,12 @@ body{
     z-index: 1;
     margin-bottom: 0;
 }
+.breadcrumb-bg-1 {
+    background: url("../images/APJ_Pic/breadcrumbImage.jpeg");
+    background-color: #ddd;
+    background-attachment: fixed;
+    background-size: cover;
+}
 
 
 .breadcrumb-content {
@@ -4597,7 +4469,6 @@ body{
 }
 
 .breadcrumb::after {
-    /* background: url(../images/bread-bg-after.png); */
     position: absolute;
     width: 100%;
     height: 100%;
@@ -4629,7 +4500,6 @@ body{
 }
 
 .breadcrumb-bg-2 {
-    background: url(../images/contact-page-bg.jpg);
     background-color: #ddd;
     background-position: center center;
     background-size: cover;
@@ -4638,7 +4508,40 @@ body{
 .breadcrumb.contact-page::before {
     display: none;
 }
+/* Medium Tablets & Large Mobiles */
+@media (max-width: 768px) {
+    .breadcrumb {
+        height: 500px;
+    }
+    .breadcrumb-bg-1 {
+        background-size: cover;
+        background-position: center;
+    }
+    .breadcrumb-content h1 {
+        font-size: 50px;
+    }
+    .breadcrumb-content p {
+        font-size: 18px;
+    }
+}
 
+/* Small Mobiles */
+@media (max-width: 480px) {
+    .breadcrumb {
+        height: fit-content;
+    }
+    .breadcrumb-bg-1 {
+        background-size: fit-content; /* Ensures image fits without cropping */
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .breadcrumb-content h1 {
+        font-size: 30px;
+    }
+    .breadcrumb-content p {
+        font-size: 16px;
+    }
+}
 /*===========================
     23.ABOUT-PAGE css 
 ===========================*/
@@ -4720,14 +4623,6 @@ body{
     padding-left: 0px;
     padding-right: 0px;
 }
-
-.breadcrumb-bg-1 {
-    background: url("../images/APJ_Pic/PIC_6.jpeg");
-    background-color: #ddd;
-    background-attachment: fixed;
-    background-size: cover;
-}
-
 
 .separetor {
     width: 5px;
@@ -6848,7 +6743,7 @@ span.replay:hover i {
 
 .contact-locations span {
     font-size: 40px;
-    color: #ffae00;
+    color: #FED700;
     margin-bottom: 20px;
 }
 
@@ -6882,7 +6777,7 @@ span.replay:hover i {
 .contact-page-form-area form input:hover,
 .contact-page-form-area form textarea:hover {
     background: transparent;
-    border: 2px solid #ff4880;
+    border: 2px solid #C60001;
 }
 
 .contact-page-form-area form textarea {
@@ -6893,7 +6788,7 @@ span.replay:hover i {
 .input-page-btn {
     font-size: 18px;
     color: #fff;
-    background: #ff4880;
+    background: #C60001;
     padding: 25px 100px;
     border-radius: 50px;
     transition: .3s ease-in-out;
@@ -6903,8 +6798,8 @@ span.replay:hover i {
 
 .input-page-btn:hover {
     background: transparent;
-    border: 1px solid #ff4880;
-    color: #ff4880;
+    border: 1px solid #C60001;
+    color: #C60001;
 }
 
 .input-page-btn i {
@@ -6923,7 +6818,7 @@ span.replay:hover i {
     right: 30px;
     height: 70px;
     line-height: 70px;
-    color: #ff4880;
+    color: #C60001;
 }
 
 .contact-page-form-area form .col-md-12 span {
