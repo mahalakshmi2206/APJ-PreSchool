@@ -185,7 +185,7 @@
     <!--====== BANNER PART START ======-->
 
    <!--====== BANNER PART START ======-->
-   <section class="banner-area">
+  <section class="banner-area">
     <div class="container">
         <div class="slider-container">
             <!-- Slide 1: Main Banner -->
@@ -197,13 +197,12 @@
                         <p>With the Best Pre-School in Anna Nagar.</p>
                         <h2 class="title_1">APJ International Pre-School</h2>
                     </div>
-                    <div class="banner-thumb">
-                        <!-- Admission Form -->
+                    <!-- Banner Thumb (For Desktop) -->
+                    <div class="banner-thumb desktop-thumb">
                         <div id="admissionForm">
                             <h2>Admission (2025-26)</h2>
                             <form>
-                                <input type="text" id="firstName" name="firstName" placeholder="First Name"
-                                    required>
+                                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
                                 <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
                                 <input type="tel" id="phone" name="phone" placeholder="Phone" required>
                                 <input type="email" id="email" name="email" placeholder="Email" required>
@@ -216,12 +215,12 @@
                                     <option value="Senior KG">Senior KG - 5 to 6 years</option>
                                 </select>
                                 <div class="banner-checkbox">
-                                    <div class="checkbox-banner-div"> <input type="checkbox" id="consent"
-                                            name="consent" required>
+                                    <div class="checkbox-banner-div"> 
+                                        <input type="checkbox" id="consent" name="consent" required>
                                     </div>
-                                    <div class="checkbox-banner-content "> <label for="consent" class="mb-0">I consent to receive
-                                            SMS notifications, alerts & occasional marketing communication from
-                                            APJ.</label></div>
+                                    <div class="checkbox-banner-content"> 
+                                        <label for="consent" class="mb-0">I consent to receive SMS notifications, alerts & occasional marketing communication from APJ.</label>
+                                    </div>
                                 </div>
                                 <button type="submit">Submit</button>
                             </form>
@@ -229,13 +228,13 @@
                     </div>
                 </div>
             </div>
+            
             <!-- Slide 2: About School -->
             <div class="slide">
                 <div class="row-banner">
                     <div class="banner-content">
                         <h2 class="title_1">Why Choose APJ International Pre-School?</h2>
-                        <p>We provide a world-class early education experience with a focus on holistic child
-                            development, interactive learning, and a nurturing environment.</p>
+                        <p>We provide a world-class early education experience with a focus on holistic child development, interactive learning, and a nurturing environment.</p>
                         <ul>
                             <li>✔ Engaging & Safe Learning Spaces</li>
                             <li>✔ Certified & Caring Educators</li>
@@ -249,6 +248,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Navigation Buttons -->
         <div class="slider-controls">
             <button class="prev-btn">&lt;</button>
@@ -256,6 +256,39 @@
         </div>
     </div>
 </section>
+
+<!-- Duplicate Banner Thumb (For Mobile & Tablet) -->
+<section class="banner-thumb mobile-thumb">
+    <div class="container">
+        <div id="admissionForm">
+            <h2>Admission (2025-26)</h2>
+            <form>
+                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+                <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+                <select id="program" name="program" required>
+                    <option value="">-- Select Program --</option>
+                    <option value="Toddler">Toddler - 18 to 24 months</option>
+                    <option value="Playgroup">Playgroup - 2 to 3 years</option>
+                    <option value="Nursery">Nursery - 3 to 4 years</option>
+                    <option value="Junior KG">Junior KG - 4 to 5 years</option>
+                    <option value="Senior KG">Senior KG - 5 to 6 years</option>
+                </select>
+                <div class="banner-checkbox">
+                    <div class="checkbox-banner-div"> 
+                        <input type="checkbox" id="consent" name="consent" required>
+                    </div>
+                    <div class="checkbox-banner-content"> 
+                        <label for="consent" class="mb-0">I consent to receive SMS notifications, alerts & occasional marketing communication from APJ.</label>
+                    </div>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>
+
 <!--====== BANNER PART ENDS ======-->
     
     
@@ -268,7 +301,7 @@
     <section class="features-area pt-30 pb-130">
         <div class="container">
             <div class="row ">
-                <div class="col-lg-12 col-md-10">
+                <div class="col-lg-12 col-md-12">
                     <div class="section-title text-center">
                         <h2 class="title">APJ International Pre-School Anna Nager, Chennai.</h2>
                         </div> <!-- section title -->
@@ -287,8 +320,7 @@
                     <div class="features-item text-center mt-30  wow slideInUp" data-wow-duration="1.4s" data-wow-delay=".2s">
                         <i class='fas fa-book-reader'></i>
                         <h4 class="title">Tailored Curriculum Activities</h4>
-                        <p>Our preschool blends American and Finnish education models, ensuring a holistic approach that 
-                            supports every child's unique growth. </p>
+                        <p>Our preschool blends American and Finnish education models, ensuring a holistic approach that supports every child's growth.</p>
                     </div> <!-- features item -->
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-8">

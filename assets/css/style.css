@@ -1344,9 +1344,7 @@ body{
     background: #8876ff;
 }
 
-/*===========================
-    BANNER SECTION STYLES
-===========================*/
+
 /*===========================
     BANNER SECTION STYLES
 ===========================*/
@@ -1419,6 +1417,34 @@ body{
     height: auto;
     display: block;
     margin: auto;
+}
+
+.mobile-thumb {
+    display: none;
+}
+
+/* Tablet & Mobile: Hide Desktop Thumb, Show Mobile Thumb */
+@media (max-width: 991px) {
+    .desktop-thumb {
+        display: none;
+    }
+    .mobile-thumb {
+        display: block;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 170px;
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .mobile-thumb {
+        margin-left: 0px;
+    }
+    .banner-content img{
+        width: 150px;
+        height: 100px;   
+    }
 }
 
 /*===========================
