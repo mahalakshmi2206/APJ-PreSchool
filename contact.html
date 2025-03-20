@@ -213,35 +213,39 @@
                 <div class="col-lg-8 col-md-12">
                     <div class="contact-page-form-area">
                         <h1 class="mb-30">Message With Us</h1>
-                        <form>
+                        <form id="enquiryForm">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <input type="text" name="name" placeholder="Full Name Here">
+                                    <input type="text" id="name" name="name" placeholder="Full Name Here" required>
                                     <span><i class="fas fa-map-marker-alt"></i></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="email" name="email" placeholder="Email Here">
+                                    <input type="email" id="email" name="email" placeholder="Email Here" required>
                                     <span><i class="far fa-envelope-open"></i></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="phone" placeholder="Your Phone">
+                                    <input type="text" id="phone" name="phone" placeholder="Your Phone" required>
                                     <span><i class="fas fa-phone-volume"></i></span>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="subject" placeholder="Subject">
+                                    <input type="text" id="subject" name="subject" placeholder="Subject" required>
                                     <span><i class="fas fa-angle-down"></i></span>
                                 </div>
                                 <div class="col-md-12">
-                                    <textarea name="message" cols="30" rows="10" placeholder="Message"></textarea>
+                                    <textarea id="message" name="message" cols="30" rows="10" placeholder="Message" required></textarea>
                                     <span><i class="fas fa-pencil-alt"></i></span>
                                 </div>
                                 <div class="col-md-12">
-                                    <a href="#" class="input-page-btn">Send Message<i class="fal fa-long-arrow-alt-right"></i></a>
+                                    <button type="submit" class="input-page-btn">Send Message <i class="fal fa-long-arrow-alt-right"></i></button>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+                
+                <!-- Placeholder for Alert -->
+                <div id="alertContainer" class="container mt-3"></div>
+                
             </div>
         </div>
     </section>
@@ -313,7 +317,7 @@
                             <li><a href="#" class="purple"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                         <div class="footer-bottom-text">
-                            <p> Copyright 2020 <span>Nunis.</span>  All rights reserved.</p>
+                            <p> Copyright 2025 <span>Webmission</span>  All rights reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -374,6 +378,59 @@
 
     <!--====== Main js ======-->
     <script src="assets/js/main.js"></script>
+
+    <script>
+        document.getElementById("enquiryForm").addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const formData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        subject: document.getElementById("subject").value,
+        message: document.getElementById("message").value
+    };
+
+    try {
+        const response = await fetch("http://localhost:5000/send-enquiry", { // Update API endpoint
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+        showAlert("success", "✅ " + data.message, "#FED700", "#0c1c46"); // Yellow Background, Navy Text
+
+        // Reset form after submission
+        document.getElementById("enquiryForm").reset();
+
+    } catch (error) {
+        console.error("Error:", error);
+        showAlert("danger", "❌ Error submitting your enquiry. Please try again.", "#C60001", "#ffffff"); // Red Background, White Text
+    }
+});
+
+function showAlert(type, message, bgColor, textColor) {
+    const alertContainer = document.getElementById("alertContainer");
+    alertContainer.innerHTML = `
+        <div class="alert alert-${type} alert-dismissible fade show text-center" role="alert"
+             style="background-color: ${bgColor}; color: ${textColor}; font-weight: bold; border-radius: 8px; padding: 15px; position: fixed; top: 20px; left: 50%; transform: translateX(-50%); width: 80%; max-width: 600px; z-index: 1050;">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+
+    // Scroll to top to make the alert visible
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // Remove the alert after 5 seconds
+    setTimeout(() => {
+        alertContainer.innerHTML = "";
+    }, 5000);
+}
+
+    </script>
+
 
 </body>
 
