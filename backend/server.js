@@ -36,6 +36,26 @@ app.post("/send-mail", (req, res) => {
     });
 });
 
+app.post("/send-mail-mobile", (req, res) => {
+    const { firstName2, lastName2, phone2, email2, program2 } = req.body;
+
+    const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: "nandhinijo22@gmail.com", // Replace with management's email
+        subject: "New Admission Form Submitted",
+        text: `First Name: ${firstName2}\nLast Name: ${lastName2}\nPhone: ${phone2}\nEmail: ${email2} \nProgram: ${program2}`
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error(error);
+            res.status(500).json({ message: "Error sending email" });
+        } else {
+            res.json({ message: "Email sent successfully!" });
+        }
+    });
+});
+
 app.post("/send-enquiry", async (req, res) => {
     const { name, email, phone, subject, message } = req.body;
 

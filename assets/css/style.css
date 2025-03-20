@@ -1431,13 +1431,11 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-left: 170px;
+        /* margin-left: 170px; */
     }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-    .mobile-thumb {
-        margin-left: 0px;
-    }
+   
     .banner-content img{
         width: 150px;
         height: 100px;   
@@ -1517,7 +1515,7 @@ body{
 /*===========================
     ADMISSION FORM STYLES
 ===========================*/
-#admissionForm {
+.admissionForm {
     background: white;
     padding: 20px;
     border-radius: 10px;
@@ -1532,14 +1530,14 @@ body{
     overflow: hidden; /* Prevents scrolling */
 }
 
-#admissionForm h2 {
+.admissionForm h2 {
     font-size: 24px;
     text-align: center;
     color: #0c1c46;
     margin-bottom: 15px;
 }
 
-#admissionForm form {
+.admissionForm form {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -1547,8 +1545,8 @@ body{
 }
 
 /* Input Fields */
-#admissionForm input,
-#admissionForm select {
+.about-area input,
+.admissionForm select {
     width: 100%;
     padding: 8px;
     border: 1px solid #0c1c46;
@@ -1571,7 +1569,7 @@ body{
 }
 
 /* Submit Button */
-#admissionForm button {
+.admissionForm button {
     background: #C60001; /* Red Theme */
     color: white;
     border: none;
@@ -1583,31 +1581,31 @@ body{
     transition: 0.3s ease-in-out;
 }
 
-#admissionForm button:hover {
+.admissionForm button:hover {
     background: #fb0202;
 }
 
-#admissionForm button:active {
+.admissionForm button:active {
     background: #870000;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    #admissionForm {
+    .admissionForm {
         max-width: 100%;
         padding: 15px;
     }
 
-    #admissionForm h2 {
+    .admissionForm h2 {
         font-size: 20px;
     }
 
-    #admissionForm input,
-    #admissionForm select {
+    .admissionForm input,
+    .admissionForm select {
         font-size: 14px;
     }
 
-    #admissionForm button {
+    .admissionForm button {
         font-size: 16px;
     }
 }

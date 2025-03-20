@@ -202,7 +202,7 @@
                     </div>
                     <!-- Banner Thumb (For Desktop) -->
                     <div class="banner-thumb desktop-thumb">
-                        <div id="admissionForm">
+                        <div id="admissionForm" class="admissionForm">
                             <h2>Admission (2025-26)</h2>
                             <form>
                                 <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
@@ -263,14 +263,14 @@
 <!-- Duplicate Banner Thumb (For Mobile & Tablet) -->
 <section class="banner-thumb mobile-thumb">
     <div class="container">
-        <div id="admissionForm">
+        <div id="mobileForm" class="admissionForm">
             <h2>Admission (2025-26)</h2>
             <form>
-                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
-                <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
-                <input type="tel" id="phone" name="phone" placeholder="Phone" required>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-                <select id="program" name="program" required>
+                <input type="text" id="firstName2" name="firstName" placeholder="First Name" required>
+                <input type="text" id="lastName2" name="lastName" placeholder="Last Name" required>
+                <input type="tel" id="phone2" name="phone" placeholder="Phone" required>
+                <input type="email" id="email2" name="email" placeholder="Email" required>
+                <select id="program2" name="program" required>
                     <option value="">-- Select Program --</option>
                     <option value="Toddler">Toddler - 18 to 24 months</option>
                     <option value="Playgroup">Playgroup - 2 to 3 years</option>
@@ -771,8 +771,8 @@
                             <li><a href="#" class="purple"><i class="fab fa-instagram"></i></a></li>
                         </ul>
                         <div class="footer-bottom-text">
-                            <p> Copyright 2025 <span>Webmission</span>  All rights reserved.</p>
-                        </div>
+                            <p> Copyright &copy; 2025 <span>Webmission</span>. All rights reserved.</p>
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -918,6 +918,43 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+
+document.getElementById("mobileForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const formData = {
+        firstName: document.getElementById("firstName2").value,
+        lastName: document.getElementById("lastName2").value,
+        phone: document.getElementById("phone2").value,
+        email: document.getElementById("email2").value,
+        program: document.getElementById("program2").value
+    };
+
+    try {
+        const response = await fetch("http://localhost:5000/send-mail", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+            throw new Error("Server error. Please try again.");
+        }
+
+        const data = await response.json();
+
+        if (!data.message) {
+            throw new Error("Invalid response from server.");
+        }
+
+        showAlert("success", "✅ " + data.message, "#FED700", "#0c1c46"); // Yellow Background, Navy Text
+
+    } catch (error) {
+        console.error("Error:", error);
+        showAlert("danger", "❌ Error submitting your form. Please try again.", "#C60001", "#ffffff"); // Red Background, White Text
+    }
+});
+
 function showAlert(type, message, bgColor, textColor) {
     const alertContainer = document.getElementById("alertContainer");
     const alertElement = document.createElement("div");
@@ -956,7 +993,6 @@ function showAlert(type, message, bgColor, textColor) {
         setTimeout(() => alertElement.remove(), 200); // Allow fade-out effect
     }, 5000);
 }
-
 
 </script>
 
