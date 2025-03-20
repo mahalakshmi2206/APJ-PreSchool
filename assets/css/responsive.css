@@ -307,20 +307,6 @@
 }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
 }
 /* Tablet desktop :768px. */
 @media (max-width: 991px) {
@@ -332,10 +318,10 @@
     }
 
     .banner-area {
-        height: 600px;
+        height: 500px;
     }
     .banner-area .banner-content p {
-        font-size: 28px;
+        font-size: 30px;
     }
     .banner-area .banner-content .title {
         font-size: 70px;

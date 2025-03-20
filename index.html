@@ -184,49 +184,29 @@
 
     <!--====== BANNER PART START ======-->
 
-    <section class="banner-area bg_cover">
-        <div class="container">
-            <div class="slider-container">
-                <!-- Slide 1: Main Banner -->
-                <div class="slide active">
-                    <div class="row-banner align-items-center">
-                        <div class="col-lg-6 banner-content">
-                            <div class="banner_title">
-                                <h1 class="title">Start Study Life</h1>
-                                <p>With the Best Pre-School in Anna Nagar.</p>
-                                <h2 class="title_1">APJ International Pre-School</h2>
-                                <ul>
-                                    <li>
-                                        <a class="main-btn" href="#" id="admissionOpenBtn">
-                                            Admission Open <i class="fal fa-long-arrow-alt-right"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="main-btn main-btn-2" href="#">Contact Us <i class="fal fa-long-arrow-alt-right"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="banner_logo">
-                                <img src="assets/images/APJ_icon/playschool2.png" alt="Preschool Logo">
-                            </div>
-                        </div>
-                        <div class="col-lg-6 banner-thumb-1">
-                            <img src="assets/images/APJ_icon/Preschool.png" alt="Preschool Logo">
-                        </div>
+   <!--====== BANNER PART START ======-->
+   <section class="banner-area">
+    <div class="container">
+        <div class="slider-container">
+            <!-- Slide 1: Main Banner -->
+            <div class="slide active">
+                <div class="row-banner">
+                    <div class="banner-content">
+                        <img src="assets/images/APJ_icon/Preschool.png" alt="Preschool Image">
+                        <h1 class="title">Start Study Life</h1>
+                        <p>With the Best Pre-School in Anna Nagar.</p>
+                        <h2 class="title_1">APJ International Pre-School</h2>
                     </div>
-                </div>
-    
-                <!-- Slide 2: Admission Form -->
-                <div class="slide">
-                    <div class="row-banner align-items-center">
-                        <div class="col-lg-6 banner-thumb">
-                            <form action="#" method="post">
-                                <h2>Admission (2025-26)</h2>
-                                <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+                    <div class="banner-thumb">
+                        <!-- Admission Form -->
+                        <div id="admissionForm">
+                            <h2>Admission (2025-26)</h2>
+                            <form>
+                                <input type="text" id="firstName" name="firstName" placeholder="First Name"
+                                    required>
                                 <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
                                 <input type="tel" id="phone" name="phone" placeholder="Phone" required>
                                 <input type="email" id="email" name="email" placeholder="Email" required>
-    
                                 <select id="program" name="program" required>
                                     <option value="">-- Select Program --</option>
                                     <option value="Toddler">Toddler - 18 to 24 months</option>
@@ -235,28 +215,48 @@
                                     <option value="Junior KG">Junior KG - 4 to 5 years</option>
                                     <option value="Senior KG">Senior KG - 5 to 6 years</option>
                                 </select>
-    
-                                <div class="banner_checkbox d-flex">
-                                    <div class="checkbox_div">
-                                        <input type="checkbox" id="consent" name="consent" required>
+                                <div class="banner-checkbox">
+                                    <div class="checkbox-banner-div"> <input type="checkbox" id="consent"
+                                            name="consent" required>
                                     </div>
-                                    <label for="consent">I consent to receive SMS notifications, alerts & occasional marketing communication from APJ.</label>
+                                    <div class="checkbox-banner-content "> <label for="consent" class="mb-0">I consent to receive
+                                            SMS notifications, alerts & occasional marketing communication from
+                                            APJ.</label></div>
                                 </div>
-    
                                 <button type="submit">Submit</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-    
-            <!-- Navigation Buttons -->
-            <div class="slider-controls">
-                <button class="prev-btn">&lt;</button>
-                <button class="next-btn">&gt;</button>
+            <!-- Slide 2: About School -->
+            <div class="slide">
+                <div class="row-banner">
+                    <div class="banner-content">
+                        <h2 class="title_1">Why Choose APJ International Pre-School?</h2>
+                        <p>We provide a world-class early education experience with a focus on holistic child
+                            development, interactive learning, and a nurturing environment.</p>
+                        <ul>
+                            <li>✔ Engaging & Safe Learning Spaces</li>
+                            <li>✔ Certified & Caring Educators</li>
+                            <li>✔ Interactive Play-Based Curriculum</li>
+                            <li>✔ Strong Foundation for Future Learning</li>
+                        </ul>
+                    </div>
+                    <div class="banner-thumb">
+                        <img src="assets/images/APJ_icon/Preschool.png" alt="Preschool Image">
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+        <!-- Navigation Buttons -->
+        <div class="slider-controls">
+            <button class="prev-btn">&lt;</button>
+            <button class="next-btn">&gt;</button>
+        </div>
+    </div>
+</section>
+<!--====== BANNER PART ENDS ======-->
     
     
 
@@ -817,37 +817,30 @@
 
 
 
-
-document.getElementById("admissionOpenBtn").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent default anchor behavior
-
-    document.getElementById("imageContainer").style.display = "none"; // Hide the image
-    document.getElementById("admissionForm").style.display = "block"; // Show the form
-});
-
 document.addEventListener("DOMContentLoaded", function () {
-    let slides = document.querySelectorAll(".slide");
-    let currentIndex = 0;
+            const slides = document.querySelectorAll(".slide");
+            const prevBtn = document.querySelector(".prev-btn");
+            const nextBtn = document.querySelector(".next-btn");
+            let currentIndex = 0;
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.toggle("active", i === index);
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle("active", i === index);
+                });
+            }
+
+            nextBtn.addEventListener("click", function () {
+                currentIndex = (currentIndex + 1) % slides.length;
+                showSlide(currentIndex);
+            });
+
+            prevBtn.addEventListener("click", function () {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                showSlide(currentIndex);
+            });
+
+
         });
-    }
-
-    document.querySelector(".next-btn").addEventListener("click", function () {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    });
-
-    document.querySelector(".prev-btn").addEventListener("click", function () {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-    });
-
-    // Show first slide initially
-    showSlide(currentIndex);
-});
 
     </script>
 

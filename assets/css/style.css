@@ -643,7 +643,7 @@ body{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #ff0000;
+    background: white;
     line-height: 43px;
     text-align: center;
     margin-right: 15px;
@@ -655,12 +655,20 @@ body{
     cursor: pointer;
 }
 
-
-
-.sidebar-menu .social-link ul li:hover {
-    background: #0c1c46;
-    color: #fff;
+.sidebar-menu .social-link li a  {
+    color: darkblue;
 }
+
+.sidebar-menu .social-link li a:hover{
+    color: white;
+}
+
+.sidebar-menu .social-link li:hover {
+    background: #0c1c46;
+   
+}
+
+
 
 .sidebar-menu.active {
     width: 390px;
@@ -1339,94 +1347,54 @@ body{
 /*===========================
     BANNER SECTION STYLES
 ===========================*/
-
-.slider-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-}
-
-.slide {
-    display: none;
-    width: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slide.active {
-    display: block;
-}
-
-.slider-controls {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.slider-controls button {
-    background: #ff5e00;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    margin: 5px;
-    cursor: pointer;
-    font-size: 18px;
-}
-
-.slider-controls button:hover {
-    background: #e84e00;
-}
-
-
-
+/*===========================
+    BANNER SECTION STYLES
+===========================*/
 .banner-area {
-    background-color: 	  	 #0c1c46;
-    padding: 24px 0;
+    background-color: #0c1c46;
+    padding: 0px 0;
     margin-top: 70px;
+    position: relative;
 }
 
 .container {
     max-width: 1200px;
+    margin: auto;
 }
 
 .row-banner {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 10px;
+    width: 100%;
+    padding-left: 50px
 }
 
-/* Left Side: Content */
+/* Banner Content */
 .banner-content {
     color: white;
-    text-align: left;
-    padding: 20px;
+    max-width: 600px;
+    text-align: start;
 }
-
-/* .banner-content img {
-    max-width: 150px;
-    margin-bottom: 20px;
-} */
-
-.banner-content .banner_logo img{
-    max-width: 422px;
-    margin-bottom: -150px;
+.banner-content img{
+    width: 300px;
+    height: 200px;
 }
 
 .banner-content .title {
-    font-size: 50px;
+    font-size: 48px;
     font-weight: bold;
-    color: 	
-    #ffff00;
-    margin-bottom: 20px;
+    color: yellow;
+    margin-bottom: 15px;
 }
 
-.banner-content .title_1{
-    font-size: 30px;
+.banner-content .title_1 {
+    font-size: 28px;
     font-weight: bold;
     color: yellow;
     margin-bottom: 20px;
-    font-family: sans-serif;
 }
 
 .banner-content p {
@@ -1434,128 +1402,207 @@ body{
     margin-bottom: 20px;
 }
 
-.banner-content ul {
-    list-style: none;
-    padding: 0;
-}
+/* Banner Thumbnail */
 
-.banner-content ul li {
-    display: inline-block;
-    margin-right: 15px;
-}
-
-.main-btn {
-    display: inline-block;
-    background: yellow;
-    color: navy;
-    padding: 10px 15px;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-top: 20px;
-}
-
-.main-btn:hover {
-    background: red;
-}
-
-/* Right Side: Form */
 .banner-thumb {
-    background: white;
-    padding: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 100%;
     max-width: 450px;
-}
-
-.banner-thumb h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
     text-align: center;
+    position: relative;
+    display: flex;
 }
 
-/* .banner_logo img{
-    width: 500px;
-    height: 200px;
-} */
-
-
-
-.banner-thumb input,
-.banner-thumb select {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-.banner-checkbox {
-    /* display: flex; */
-    /* align-items: center; */
-    margin-top: 10px;
-}
-.checkbox_div{
-    width: 25px;
-    height: 25px;
-    margin-right: 15px;
-    margin-top: 3px;
-}
-
-.banner-checkbox input {
-    margin-right: 10px;
-}
-
-.banner-thumb button {
-    background: navy;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 10px;
-    transition: 0.3s;
-}
-
-.banner-thumb button:hover {
-    background: darkred;
-}
-
-.banner-thumb-1 img{
-  height: 500px;
-  
-}
-
-
-
-#admissionForm {
-    display: none;
+.banner-thumb img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
 }
 
 /*===========================
-    RESPONSIVE DESIGN
+    SLIDER CONTROLS STYLES
 ===========================*/
-@media (max-width: 991px) {
-    .row {
-        /* flex-direction: column; */
-        text-align: center;
-    }
-
-    .banner-content {
-        text-align: center;
-    }
-
-    .banner-thumb {
-        width: 100%;
-    }
-    /* .banner-area {
-        background-color: navy;
-        padding: 60px 0;
-        margin-top: 85px;
-    } */
+.slider-controls {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
 }
+
+.slider-controls button {
+    background: #C60001;
+    border: none;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.slider-controls button:hover {
+    background: #fb0202;
+}
+
+.slider-controls button:active {
+    background: #870000;
+}
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 480px;
+    min-height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide.active {
+    display: flex;
+    width: 100%;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .slider-controls {
+        bottom: 10px;
+        gap: 10px;
+    }
+
+    .slider-controls button {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+}
+
+/*===========================
+    ADMISSION FORM STYLES
+===========================*/
+#admissionForm {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;  /* Ensures form doesn’t get too wide */
+    width: 100%;
+    height: 100%; /* Ensures fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+#admissionForm h2 {
+    font-size: 24px;
+    text-align: center;
+    color: #0c1c46;
+    margin-bottom: 15px;
+}
+
+#admissionForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+/* Input Fields */
+#admissionForm input,
+#admissionForm select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #0c1c46;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Checkbox */
+.banner-checkbox {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    gap: 8px;
+    font-size: 10px;
+    text-align: left;
+}
+.checkbox-banner-div{
+    width: 10%;
+    margin-top: 3px;
+}
+
+/* Submit Button */
+#admissionForm button {
+    background: #C60001; /* Red Theme */
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#admissionForm button:hover {
+    background: #fb0202;
+}
+
+#admissionForm button:active {
+    background: #870000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #admissionForm {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    #admissionForm h2 {
+        font-size: 20px;
+    }
+
+    #admissionForm input,
+    #admissionForm select {
+        font-size: 14px;
+    }
+
+    #admissionForm button {
+        font-size: 16px;
+    }
+}
+
+
+/* Responsive */
+
+
+@media (max-width: 991px) {
+    .row-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .banner-content{
+        margin-top: 25px;
+    }
+}
+
 
 
 /*===========================
