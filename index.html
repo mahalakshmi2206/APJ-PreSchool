@@ -43,7 +43,7 @@
 
 <body>
 
-    <div id="alertContainer" class="container mt-3"></div>
+    <div id="alertContainer" class="container"></div>
 
 
     <!--======  PRELOADER PART START ======-->
@@ -702,9 +702,6 @@
                                 <div class="col-md-2 col-sm-4">
                                     <div class="single-footer-gallery-img">
                                         <img src="assets/images/APJ_Pic/PIC_5.jpeg" alt="">
-                                        <div class="overlay-footer-link">
-                                            <a href="assets/images/footer-gallery/footer-gallery-img-2.jpg" class="popup-footer-img"><i class="fas fa-plus"></i></a>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -880,120 +877,147 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // form
-
-
         document.getElementById("admissionForm").addEventListener("submit", async function(event) {
-    event.preventDefault();
+        event.preventDefault();
 
-    const formData = {
-        firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
-        phone: document.getElementById("phone").value,
-        email: document.getElementById("email").value,
-        program: document.getElementById("program").value
-    };
+        const formData = {
+            firstName: document.getElementById("firstName").value,
+            lastName: document.getElementById("lastName").value,
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            program: document.getElementById("program").value
+        };
 
-    try {
-        const response = await fetch("http://localhost:5000/send-mail", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-        });
+        // Show "Sending..." message
+        const sendingAlert = showAlert("info", "⏳ Sending your form...", "#007BFF", "#ffffff");
 
-        if (!response.ok) {
-            throw new Error("Server error. Please try again.");
+        try {
+            const response = await fetch("http://localhost:5000/send-mail", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Server error. Please try again.");
+            }
+
+            const data = await response.json();
+
+            if (!data.message) {
+                throw new Error("Invalid response from server.");
+            }
+
+            // Remove "Sending..." message and show success message
+            removeAlert(sendingAlert);
+            const successAlert = showAlert("success", "✅ " + data.message, "#FED700", "#0c1c46");
+
+            // Remove success message after 5 seconds
+            setTimeout(() => removeAlert(successAlert), 5000);
+
+        } catch (error) {
+            console.error("Error:", error);
+            
+            // Remove "Sending..." message and show error message
+            removeAlert(sendingAlert);
+            const errorAlert = showAlert("danger", "❌ Error submitting your form. Please try again.", "#C60001", "#ffffff");
+
+            // Remove error message after 5 seconds
+            setTimeout(() => removeAlert(errorAlert), 5000);
         }
+    });
 
-        const data = await response.json();
+    document.getElementById("mobileForm").addEventListener("submit", async function(event) {
+        event.preventDefault();
 
-        if (!data.message) {
-            throw new Error("Invalid response from server.");
+        const formData = {
+            firstName: document.getElementById("firstName2").value,
+            lastName: document.getElementById("lastName2").value,
+            phone: document.getElementById("phone2").value,
+            email: document.getElementById("email2").value,
+            program: document.getElementById("program2").value
+        };
+
+        // Show "Sending..." message
+        const sendingAlert = showAlert("info", "⏳ Sending your form...", "#007BFF", "#ffffff");
+
+        try {
+            const response = await fetch("http://localhost:5000/send-mail", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            if (!response.ok) {
+                throw new Error("Server error. Please try again.");
+            }
+
+            const data = await response.json();
+
+            if (!data.message) {
+                throw new Error("Invalid response from server.");
+            }
+
+            // Remove "Sending..." message and show success message
+            removeAlert(sendingAlert);
+            const successAlert = showAlert("success", "✅ " + data.message, "#FED700", "#0c1c46");
+
+            // Remove success message after 5 seconds
+            setTimeout(() => removeAlert(successAlert), 5000);
+
+        } catch (error) {
+            console.error("Error:", error);
+            
+            // Remove "Sending..." message and show error message
+            removeAlert(sendingAlert);
+            const errorAlert = showAlert("danger", "❌ Error submitting your form. Please try again.", "#C60001", "#ffffff");
+
+            // Remove error message after 5 seconds
+            setTimeout(() => removeAlert(errorAlert), 3000);
         }
+    });
 
-        showAlert("success", "✅ " + data.message, "#FED700", "#0c1c46"); // Yellow Background, Navy Text
+    function showAlert(type, message, bgColor, textColor) {
+        const alertContainer = document.getElementById("alertContainer");
+        const alertElement = document.createElement("div");
 
-    } catch (error) {
-        console.error("Error:", error);
-        showAlert("danger", "❌ Error submitting your form. Please try again.", "#C60001", "#ffffff"); // Red Background, White Text
+        alertElement.className = `alert alert-${type} alert-dismissible fade show text-center`;
+        alertElement.role = "alert";
+        alertElement.style = `
+            background-color: ${bgColor}; 
+            color: ${textColor}; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            padding: 15px; 
+            position: fixed; 
+            top: 20px; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 80%; 
+            max-width: 600px; 
+            z-index: 1050;
+        `;
+
+        alertElement.innerHTML = `
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        `;
+
+        alertContainer.appendChild(alertElement);
+
+        // Scroll to top to make the alert visible
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
+        return alertElement;
     }
-});
 
-
-document.getElementById("mobileForm").addEventListener("submit", async function(event) {
-    event.preventDefault();
-
-    const formData = {
-        firstName: document.getElementById("firstName2").value,
-        lastName: document.getElementById("lastName2").value,
-        phone: document.getElementById("phone2").value,
-        email: document.getElementById("email2").value,
-        program: document.getElementById("program2").value
-    };
-
-    try {
-        const response = await fetch("http://localhost:5000/send-mail", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData),
-        });
-
-        if (!response.ok) {
-            throw new Error("Server error. Please try again.");
+    function removeAlert(alertElement) {
+        if (alertElement) {
+            alertElement.classList.remove("show");
+            alertElement.classList.add("fade");
+            setTimeout(() => alertElement.remove(), 200); // Allow fade-out effect
         }
-
-        const data = await response.json();
-
-        if (!data.message) {
-            throw new Error("Invalid response from server.");
-        }
-
-        showAlert("success", "✅ " + data.message, "#FED700", "#0c1c46"); // Yellow Background, Navy Text
-
-    } catch (error) {
-        console.error("Error:", error);
-        showAlert("danger", "❌ Error submitting your form. Please try again.", "#C60001", "#ffffff"); // Red Background, White Text
     }
-});
-
-function showAlert(type, message, bgColor, textColor) {
-    const alertContainer = document.getElementById("alertContainer");
-    const alertElement = document.createElement("div");
-
-    alertElement.className = `alert alert-${type} alert-dismissible fade show text-center`;
-    alertElement.role = "alert";
-    alertElement.style = `
-        background-color: ${bgColor}; 
-        color: ${textColor}; 
-        font-weight: bold; 
-        border-radius: 8px; 
-        padding: 15px; 
-        position: fixed; 
-        top: 20px; 
-        left: 50%; 
-        transform: translateX(-50%); 
-        width: 80%; 
-        max-width: 600px; 
-        z-index: 1050;
-    `;
-
-    alertElement.innerHTML = `
-        ${message}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    `;
-
-    alertContainer.appendChild(alertElement);
-
-    // Scroll to top to make the alert visible
-    window.scrollTo({ top: 0, behavior: "smooth" });
-
-    // Remove the alert after 5 seconds
-    setTimeout(() => {
-        alertElement.classList.remove("show");
-        alertElement.classList.add("fade");
-        setTimeout(() => alertElement.remove(), 200); // Allow fade-out effect
-    }, 5000);
-}
-
 </script>
 
 
